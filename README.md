@@ -104,6 +104,59 @@ To be able to start development on Amplication, make sure that you have the foll
 - Git
 </details>
 
+### Configuration
+
+- Amplication Server
+
+To bind the **amplication-server** to ip address 0.0.0.0. Edit **packages/amplication-server/project.json**, Add **host** keyword to the following statement:
+
+```json
+"serve": {
+  . . . . . .
+  "host": "0.0.0.0",
+  "port": 3001
+}
+```
+
+- Amplication Client
+
+To bind the **amplication-client** to ip address 0.0.0.0. Edit **packages/amplication-client/project.json**, Add **host** keyword to the following statement:
+
+```json
+"serve": {
+  . . . . . .
+  "host": "0.0.0.0",
+  "port": 3001
+}
+```
+
+Edit **packages/amplication-client/.env**:
+
+```text
+NX_REACT_APP_DATA_SOURCE="http://<HOST_IP_ADDRESS>:3000/graphql"
+NX_REACT_APP_STORAGE_GATEWAY_URL="http://<HOST_IP_ADDRESS>:3002"
+NX_REACT_APP_AUTH_LOGIN_URI="http://<HOST_IP_ADDRESS>:3000/auth/login"
+NX_REACT_APP_AUTH_LOGOUT_URI="http://<HOST_IP_ADDRESS>:3000/auth/logout"
+```
+
+- Data Service Generator
+
+Edit **packages/local-data-service-generator-controller/.env**
+
+```
+BUILD_MANAGER_URL="http://<HOST_IP_ADDRESS>:5010"
+```
+
+- Git Sync
+
+Edit **ee/packages/git-sync-manager/.env**
+
+```text
+GITHUB_APP_APP_ID=[github-app-app-id]
+GITHUB_APP_INSTALLATION_URL=[GITHUB_APP_INSTALLATION_URL]
+GITHUB_APP_PRIVATE_KEY=[GITHUB_APP_PRIVATE_KEY]
+```
+
 <details open>
 <summary>
 Running Amplication
@@ -120,6 +173,7 @@ Amplication is using a monorepo architecture - powered by <a href="https://nx.de
 3. You are using a supported npm version (check `engines` `npm` in the [package.json](./package.json))
 4. You have `docker` installed and running on your machine
 
+---
 
 1. Clone the repository and install dependencies:
 ```shell
@@ -169,11 +223,18 @@ npm run serve:plugins
 > **Note**
 > In order to run the Amplication client properly, both the client and server need to be started by the `npm run serve:[application]` command, as well as an additional component for development on a specific component.
 
+> **Note 2**
+> Error Message: **ENOSPC: System limit for number of file watchers reached, watch**. Perform the command:
+
+```shell
+$ echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p
+```
+
 The development environment should now be set up. Additional information on the different application components can be found under packages/`[application]`/README.md file. Happy hacking! 👾
 </details>
 
 ## Resources
-
+- **[Connect Amplication server to GitHub](https://docs.amplication.com/running-amplication-platform/connect-server-to-github/)** for connecting to GitHub repository.
 - **[Website](https://amplication.com)** overview of the product.
 - **[Docs](https://docs.amplication.com)** for comprehensive documentation.
 - **[Blog](https://amplication.com/blog)** for guides and technical comparisons.
