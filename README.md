@@ -149,6 +149,8 @@ BUILD_MANAGER_URL="http://<HOST_IP_ADDRESS>:5010"
 
 - Git Sync
 
+To connect/sync with Github Repository. See: **[Connect Amplication server to GitHub](https://docs.amplication.com/running-amplication-platform/connect-server-to-github/)**.
+
 Edit **ee/packages/git-sync-manager/.env**
 
 ```text
