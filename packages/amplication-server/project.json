@@ -90,6 +90,7 @@
     "serve": {
       "executor": "@nx/js:node",
       "options": {
+        "host": "0.0.0.0",
         "watch": true,
         "port": 7000,
         "buildTarget": "amplication-server:build"

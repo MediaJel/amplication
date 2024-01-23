@@ -21,6 +21,7 @@
     "serve:storage": "npx nx serve amplication-storage-gateway",
     "serve:plugins": "npx nx serve amplication-plugin-api",
     "serve:notification": "npx nx serve notification-service",
+    "serve:all": "concurrently --kill-others \"npm run serve:server\" \"npm run serve:client\" \"npm run serve:dsg\" \"npm run serve:git\" \"npm run serve:plugins\"",
     "debug:dsg": "npx nx generate-local-code data-service-generator"
   },
   "lint-staged": {
@@ -277,6 +278,7 @@
     "aws-sdk-client-mock": "^3.0.0",
     "babel-jest": "^29.7.0",
     "base-64": "^1.0.0",
+    "concurrently": "^8.2.2",
     "copy-webpack-plugin": "^11.0.0",
     "css-loader": "^6.8.1",
     "docker-compose": "^0.24.2",

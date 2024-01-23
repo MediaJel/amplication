@@ -93,6 +93,7 @@
       "options": {
         "buildTarget": "amplication-client:build",
         "hmr": true,
+        "host": "0.0.0.0",
         "open": true,
         "port": 3001
       },
