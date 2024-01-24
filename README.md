@@ -130,7 +130,7 @@ To bind the **amplication-client** to ip address 0.0.0.0. Edit **packages/amplic
 }
 ```
 
-Edit **packages/amplication-client/.env**:
+Edit **packages/amplication-client/.env.local**:
 
 ```text
 NX_REACT_APP_DATA_SOURCE="http://<HOST_IP_ADDRESS>:3000/graphql"
@@ -141,7 +141,7 @@ NX_REACT_APP_AUTH_LOGOUT_URI="http://<HOST_IP_ADDRESS>:3000/auth/logout"
 
 - Data Service Generator
 
-Edit **packages/local-data-service-generator-controller/.env**
+Edit **packages/local-data-service-generator-controller/.env.local**
 
 ```
 BUILD_MANAGER_URL="http://<HOST_IP_ADDRESS>:5010"
@@ -151,7 +151,7 @@ BUILD_MANAGER_URL="http://<HOST_IP_ADDRESS>:5010"
 
 To connect/sync with Github Repository. See: **[Connect Amplication server to GitHub](https://docs.amplication.com/running-amplication-platform/connect-server-to-github/)**.
 
-Edit **ee/packages/git-sync-manager/.env**
+Edit **ee/packages/git-sync-manager/.env.local**
 
 ```text
 GITHUB_APP_APP_ID=[github-app-app-id]
