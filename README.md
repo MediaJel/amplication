@@ -203,7 +203,7 @@ npm run docker:dev -- -d
 npm run db:migrate:deploy
 ```
 
-5. To start developing, run one or more of the applications available under `serve:[application]` scripts of the package.json.
+5. Option 1: To start developing, run one or more of the applications available under `serve:[application]` scripts of the package.json.
 
 ```shell
 # running the server component
@@ -220,6 +220,11 @@ npm run serve:git
 
 # running the plugin-api component
 npm run serve:plugins
+```
+5. Option 2: To run all the services
+
+```shell
+npm run serve:all
 ```
 
 > **Note**
