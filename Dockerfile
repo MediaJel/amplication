@@ -19,4 +19,4 @@ RUN npm run setup:dev
 RUN npm run db:migrate:deploy
 
 
-ENTRYPOINT ["npm", "run", "serve:all"]
+ENTRYPOINT ["npx", "nx", "reset", "&&", "npm", "run", "serve:all"]
