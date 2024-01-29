@@ -88,12 +88,8 @@ To get started with Amplication, the hosted version of the product can be used. 
 </details>
 
 ## Quickstart
-<details open>
-<summary>
 Quickstart Pre-requisites
-</summary> <br />
 - Docker
-</details>
 
 ```sh
 # Run the local infrastructure
@@ -103,16 +99,13 @@ docker-compose -f docker-compose.dev.yml --env-file .env.docker-compose up
 docker-compose  --env-file .env.docker-compose up
 ```
 
-###
+## Development
+
+### Pre-requisites
 
 - Node.js
 - Docker
 - Git
-</details>
-
-```
-```
-## Development
 
 Alternatively, instead of using the hosted version of the product, Amplication can be run locally for code generation purposes or contributions - if so, please refer to our [contributing](#contributing_anchor) section.
 
