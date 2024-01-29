@@ -13,4 +13,4 @@ npm run serve:server &
 npm run serve:client &
 npm run serve:dsg &
 npm run serve:git &
-npm run serve: plugins
+npm run serve:plugins
