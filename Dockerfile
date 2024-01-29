@@ -11,6 +11,9 @@ COPY . .
 
 RUN npm install
 
+# Required for running all microservices
+RUN npm install concurrently
+
 RUN npm run setup:dev
 
 RUN npm run db:migrate:deploy

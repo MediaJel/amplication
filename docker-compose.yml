@@ -5,6 +5,7 @@ services:
     build:
       context: .
       dockerfile: ./Dockerfile
+      network: host
     ports:
       - "3000:3000" # Server
       - "3001:3001" # Client
