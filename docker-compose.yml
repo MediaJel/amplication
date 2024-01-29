@@ -86,5 +86,5 @@ services:
       - "5011:5011" # Git Sync Manager
 
 volumes:
-  postgres: /tmp/postgres
-  redis_data: /tmp/redis
+  postgres:
+  redis_data:
