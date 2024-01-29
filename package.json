@@ -8,6 +8,7 @@
     "setup:dev": "ts-node ./scripts/setup.ts",
     "clean": "nx clear-cache",
     "docker:dev": "docker-compose -f docker-compose.dev.yml --env-file .env.docker-compose up",
+    "docker:all": "npm run docker:dev -- -d && docker-compose  --env-file .env.docker-compose up",
     "docker:dev:cleanup": "docker-compose -f docker-compose.dev.yml --env-file .env.docker-compose down",
     "db:migrate:deploy": "nx run-many --target=db:migrate:deploy",
     "prepare": "husky install",
