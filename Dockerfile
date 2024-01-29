@@ -13,9 +13,7 @@ RUN npm install
 
 RUN npm run setup:dev
 
-# Expected that docker-compose.dev
 RUN npm run db:migrate:deploy
 
-RUN npm run serve:all
 
-ENTRYPOINT ["node", "./main.js"]
+ENTRYPOINT ["npm", "run", "serve:all"]
