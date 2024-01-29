@@ -87,6 +87,31 @@ To get started with Amplication, the hosted version of the product can be used. 
 - [To-do application using Amplication and React](https://docs.amplication.com/tutorials/react-todos)
 </details>
 
+## Quickstart
+<details open>
+<summary>
+Quickstart Pre-requisites
+</summary> <br />
+- Docker
+</details>
+
+```sh
+# Run the local infrastructure
+docker-compose -f docker-compose.dev.yml --env-file .env.docker-compose up
+
+# Run the amplication microservices
+docker-compose  --env-file .env.docker-compose up
+```
+
+###
+
+- Node.js
+- Docker
+- Git
+</details>
+
+```
+```
 ## Development
 
 Alternatively, instead of using the hosted version of the product, Amplication can be run locally for code generation purposes or contributions - if so, please refer to our [contributing](#contributing_anchor) section.
@@ -106,30 +131,6 @@ To be able to start development on Amplication, make sure that you have the foll
 
 ### Configuration
 
-- Amplication Server
-
-To bind the **amplication-server** to ip address 0.0.0.0. Edit **packages/amplication-server/project.json**, Add **host** keyword to the following statement:
-
-```json
-"serve": {
-  . . . . . .
-  "host": "0.0.0.0",
-  "port": 3001
-}
-```
-
-- Amplication Client
-
-To bind the **amplication-client** to ip address 0.0.0.0. Edit **packages/amplication-client/project.json**, Add **host** keyword to the following statement:
-
-```json
-"serve": {
-  . . . . . .
-  "host": "0.0.0.0",
-  "port": 3001
-}
-```
-
 Edit **packages/amplication-client/.env**:
 
 ```text
@@ -141,7 +142,7 @@ NX_REACT_APP_AUTH_LOGOUT_URI="http://<HOST_IP_ADDRESS>:3000/auth/logout"
 
 - Data Service Generator
 
-Edit **packages/local-data-service-generator-controller/.env**
+Edit **packages/local-data-service-generator-controller/.env.local**
 
 ```
 BUILD_MANAGER_URL="http://<HOST_IP_ADDRESS>:5010"
@@ -151,7 +152,7 @@ BUILD_MANAGER_URL="http://<HOST_IP_ADDRESS>:5010"
 
 To connect/sync with Github Repository. See: **[Connect Amplication server to GitHub](https://docs.amplication.com/running-amplication-platform/connect-server-to-github/)**.
 
-Edit **ee/packages/git-sync-manager/.env**
+Edit **ee/packages/git-sync-manager/.env.local**
 
 ```text
 GITHUB_APP_APP_ID=[github-app-app-id]

@@ -68,3 +68,7 @@ src/schema.graphql
 
 **/prisma/migrations/dev/
 .nx
+
+
+# Server files
+nohup.out
