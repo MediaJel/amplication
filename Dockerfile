@@ -18,5 +18,6 @@ RUN npm run setup:dev
 
 RUN npm run db:migrate:deploy
 
+RUN chmod +x ./docker-entrypoint.sh
 
-ENTRYPOINT ["npx", "nx", "reset", "&&", "npm", "run", "serve:all"]
+ENTRYPOINT ./docker-entrypoint.sh
