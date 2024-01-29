@@ -1,0 +1,42 @@
+version: "3"
+services:
+  amplication-server:
+    build:
+      context: ./packages/amplication-server
+    env_file:
+      - ./packages/amplication-server/.env
+      - ./packages/amplication-server/.env.local
+    ports:
+      - "3000:3000"
+  amplication-client:
+    build:
+      context: ./packages/amplication-client
+    env_file:
+      - ./packages/amplication-client/.env
+      - ./packages/amplication-client/.env.local
+    ports:
+      - "3001:3001"
+  amplication-build-manager:
+    build:
+      context: ./packages/amplication-build-manager
+    env_file:
+      - ./packages/amplication-build-manager/.env
+      - ./packages/amplication-build-manager/.env.local
+    ports:
+      - "7010:7010"
+  amplication-local-data-service-generator-controller:
+    build:
+      context: ./packages/amplication-local-data-service-generator-controller
+    env_file:
+      - ./packages/amplication-local-data-service-generator-controller/.env
+      - ./packages/amplication-local-data-service-generator-controller/.env.local
+    ports:
+      - "7011:7011"
+  amplication-git:
+    build:
+      context: ./ee/git-sync-manager
+    env_file:
+      - ./ee/git-sync-manager/.env
+      - ./ee/git-sync-manager/.env.local
+    ports:
+      - "5011:5011"
