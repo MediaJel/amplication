@@ -9,4 +9,8 @@ rm -rf ./node_modules/.cache
 npx nx reset 
 
 # Serve the app
-npm run serve:all
+npm run serve:server &
+npm run serve:client &
+npm run serve:dsg &
+npm run serve:git &
+npm run serve: plugins
