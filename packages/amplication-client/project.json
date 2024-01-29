@@ -94,7 +94,8 @@
         "buildTarget": "amplication-client:build",
         "hmr": true,
         "open": true,
-        "port": 3001
+        "port": 3001,
+        "host": "0.0.0.0"
       },
       "dependsOn": ["prebuild"],
       "configurations": {

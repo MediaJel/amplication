@@ -12,3 +12,5 @@ services:
     #   - "7010:7010" # Build Manager
     #   - "7011:7011" # Local Data Service Generator Controller
     #   - "5011:5011" # Git Sync Manager
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
