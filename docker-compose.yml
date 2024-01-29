@@ -73,6 +73,11 @@ services:
     build:
       context: .
       dockerfile: ./Dockerfile
+    depends_on:
+      - db
+      - redis
+      - kafka
+      - kafka-ui
     ports:
       - "3000:3000" # Server
       - "3001:3001" # Client
