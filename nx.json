@@ -3,6 +3,7 @@
     "default": {
       "runner": "nx-cloud",
       "options": {
+        "skipNxCache": true,
         "cacheableOperations": [
           "prebuild",
           "build",

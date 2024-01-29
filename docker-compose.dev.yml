@@ -3,8 +3,9 @@ services:
   db:
     image: postgres:12
     restart: always
-    ports:
-      - "5432:5432"
+    network_mode: host
+    # ports:
+    #   - "5432:5432"
     environment:
       POSTGRES_USER: ${POSTGRESQL_USER}
       POSTGRES_PASSWORD: ${POSTGRESQL_PASSWORD}
@@ -18,18 +19,20 @@ services:
       retries: 5
   redis:
     image: redis:latest
+    network_mode: host
     restart: always
-    ports:
-      - "6379:6379"
+    # ports:
+    #   - "6379:6379"
     volumes:
       - redis_data:/data
   kafka-ui:
     container_name: kafka-ui
     image: docker.redpanda.com/redpandadata/console:latest
+    network_mode: host
     entrypoint: /bin/sh
     command: -c "echo \"$$CONSOLE_CONFIG_FILE\" > /tmp/config.yml; /app/console"
-    ports:
-      - "8080:8080"
+    # ports:
+    #   - "8080:8080"
     depends_on:
       - zookeeper
       - kafka
@@ -40,19 +43,21 @@ services:
           brokers: ["kafka:29092"]
   zookeeper:
     image: confluentinc/cp-zookeeper:7.3.1
+    network_mode: host
     environment:
       ZOOKEEPER_CLIENT_PORT: 2181
       ZOOKEEPER_TICK_TIME: 2000
-    ports:
-      - "2181:2181"
+    # ports:
+    #   - "2181:2181"
 
   kafka:
     image: confluentinc/cp-kafka:7.3.1
+    network_mode: host
     depends_on:
       - zookeeper
-    ports:
-      - "9092:9092"
-      - "9997:9997"
+    # ports:
+    #   - "9092:9092"
+    #   - "9997:9997"
     environment:
       KAFKA_BROKER_ID: 1
       KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
