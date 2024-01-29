@@ -18,5 +18,8 @@ RUN npm run setup:dev
 
 RUN npm run db:migrate:deploy
 
+# Resets the cache
+RUN npx nx reset
+
 
 ENTRYPOINT ["npm", "run", "serve:all"]
