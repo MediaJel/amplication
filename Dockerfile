@@ -7,12 +7,11 @@ RUN apt-get install -y openssl
 
 WORKDIR /app
 
-COPY . .
+COPY package*.json ./
 
 RUN npm install
 
-# Required for running all microservices
-RUN npm install concurrently
+COPY . .
 
 RUN npm run setup:dev
 
