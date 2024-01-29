@@ -1,0 +1,14 @@
+version: "3"
+services:
+  amplication:
+    network_mode: host
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+      network: host
+    # ports:
+    #   - "3000:3000" # Server
+    #   - "3001:3001" # Client
+    #   - "7010:7010" # Build Manager
+    #   - "7011:7011" # Local Data Service Generator Controller
+    #   - "5011:5011" # Git Sync Manager
