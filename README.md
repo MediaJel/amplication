@@ -250,6 +250,8 @@ Here are the steps to update the repository & deployment:
 "Sync fork" button. You want to click on that to sync our fork from the upstream repo. After syncing, you will notice that
 the `master` branch has additional commits that came from the upstream repo.
 
+![image](https://github.com/MediaJel/amplication/assets/69985528/36756622-60ef-4267-b4c3-073ec8a8533f)
+
 
 2. In the EC2 instance (server) of where this is deployed, you want to turn off the `amplication` docker containers:
 
