@@ -19,4 +19,9 @@ RUN npm run db:migrate:deploy
 
 RUN chmod +x ./docker-entrypoint.sh
 
+# Install Docker buildx
+RUN curl -L https://github.com/docker/buildx/releases/download/v0.12.1/buildx-v0.12.1.linux-amd64 -o /usr/local/bin/buildx \
+  && chmod a+x /usr/local/bin/buildx \
+  && buildx create --use
+  
 ENTRYPOINT ./docker-entrypoint.sh

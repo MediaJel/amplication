@@ -232,6 +232,45 @@ npm run serve:plugins
 npm run serve:all
 ```
 
+## Upgrading & Maintenance
+
+This repository is a fork of the original [amplication](https://github.com/amplication/amplication) repository with some custom
+changes to make it ideal for deploying & maintaining in a self-hosted way. Since this repo is a fork, we are able to receive updates from the upstream [amplication](https://github.com/amplication/amplication) repository. 
+
+> Note: It's always best to update frequently as not updating for a long time
+> causes larger issues that may be difficult to resolve at once so
+> update as frequently as possible
+
+Here are the steps to update the repository & deployment:
+
+> At the time of writing, we deployed Amplication in an AWS EC2 node.
+> The instructions below will address that type of deployment
+
+1. Navigate to the [Mediajel amplication fork](https://github.com/MediaJel/amplication) and at the top there should be a 
+"Sync fork" button. You want to click on that to sync our fork from the upstream repo. After syncing, you will notice that
+the `master` branch has additional commits that came from the upstream repo.
+
+
+2. In the EC2 instance (server) of where this is deployed, you want to turn off the `amplication` docker containers:
+
+```sh
+# Shut down the amplication microservices
+docker-compose  --env-file .env.docker-compose down
+```
+
+3. Then you would want to rebuild the amplication microservices with the latest code changes
+
+```sh
+docker-compose  --env-file .env.docker-compose up --build
+```
+
+4. If everything goes well, you may deploy it in `detached` mode (I.E have it running without printing to the console)
+
+```sh
+docker-compose  --env-file .env.docker-compose up -d
+```
+
+
 > **Note**
 > In order to run the Amplication client properly, both the client and server need to be started by the `npm run serve:[application]` command, as well as an additional component for development on a specific component.
 
@@ -280,6 +319,7 @@ change the height and width for each of the contributors from 80 to 50.
 --->
 
 [//]: contributor-faces
+<a href="https://github.com/pacholoamit"><img src="https://avatars.githubusercontent.com/u/69985528?v=4" title="pacholoamit" width="50" height="50"></a>
 <a href="https://github.com/yuval-hazaz"><img src="https://avatars.githubusercontent.com/u/43705455?v=4" title="yuval-hazaz" width="50" height="50"></a>
 <a href="https://github.com/iddan"><img src="https://avatars.githubusercontent.com/u/12671072?v=4" title="iddan" width="50" height="50"></a>
 <a href="https://github.com/tupe12334"><img src="https://avatars.githubusercontent.com/u/61761153?v=4" title="tupe12334" width="50" height="50"></a>
