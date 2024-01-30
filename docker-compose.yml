@@ -2,6 +2,7 @@ version: "3"
 services:
   amplication:
     network_mode: host
+    privileged: true # Necessary for Docker in Docker
     build:
       context: .
       dockerfile: ./Dockerfile
@@ -13,4 +14,5 @@ services:
     #   - "7011:7011" # Local Data Service Generator Controller
     #   - "5011:5011" # Git Sync Manager
     volumes:
+      # Local data service generator controller requires docker so we implemnt DinD (Docker in Docker)
       - /var/run/docker.sock:/var/run/docker.sock

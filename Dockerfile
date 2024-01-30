@@ -1,9 +1,10 @@
-FROM node:18.18.0-slim AS base
+# Use a base image with Docker installed
+FROM node:18.18.0-slim AS builder
 
 # Required to run Prisma on ARM64 machines
 # https://github.com/prisma/prisma/issues/861#issuecomment-881992292
-RUN apt-get update
-RUN apt-get install -y openssl
+RUN apt-get update && \
+    apt-get install -y openssl
 
 WORKDIR /app
 
@@ -19,9 +20,27 @@ RUN npm run db:migrate:deploy
 
 RUN chmod +x ./docker-entrypoint.sh
 
-# Install Docker buildx
-RUN curl -L https://github.com/docker/buildx/releases/download/v0.12.1/buildx-v0.12.1.linux-amd64 -o /usr/local/bin/buildx \
-  && chmod a+x /usr/local/bin/buildx \
-  && buildx create --use
-  
-ENTRYPOINT ./docker-entrypoint.sh
+# Install Docker CLI and Docker Compose
+RUN apt-get install -y curl && \
+    curl -fsSL https://get.docker.com -o get-docker.sh && \
+    sh get-docker.sh && \
+    rm get-docker.sh
+
+# Final image
+FROM node:18.18.0-slim
+
+# Copy binaries or artifacts from the builder stage
+COPY --from=builder /app /app
+
+# Set working directory
+WORKDIR /app
+
+# Install Docker CLI in the final image
+RUN apt-get update && \
+    apt-get install -y curl && \
+    curl -fsSL https://get.docker.com -o get-docker.sh && \
+    sh get-docker.sh && \
+    rm get-docker.sh
+
+# Your application startup command
+ENTRYPOINT ["./docker-entrypoint.sh"]
