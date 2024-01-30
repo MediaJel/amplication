@@ -124,7 +124,18 @@ To be able to start development on Amplication, make sure that you have the foll
 
 ### Configuration
 
-Edit **packages/amplication-client/.env**:
+Create `.env.local` files. When running the application, it will either read the `.env.local` first (if present),
+if not then it loads the `.env` file which is included in the git repo. It's important to set "personalized" (I.E. if running amplication on a separate server other than localhost) environment variables in your `.env.local` file while more "generic" (I.E. running amplication on localhost) environment variables would be added to the
+`.env` file
+
+```sh
+cp ./packages/amplication-client/.env ./packages/amplication-client/.env.local
+cp ./packages/amplication-server/.env ./packages/amplication-server/.env.local
+cp ./packages/local-data-service-generator-controller/.env ./packages/local-data-service-generator-controller/.env.local
+cp ./ee/packages/git-sync-manager/.env ./ee/packages/git-sync-manager/.env.local
+```
+
+Edit **packages/amplication-client/.env.local**:
 
 ```text
 NX_REACT_APP_DATA_SOURCE="http://<HOST_IP_ADDRESS>:3000/graphql"
