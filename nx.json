@@ -4,21 +4,7 @@
       "runner": "nx-cloud",
       "options": {
         "skipNxCache": true,
-        "cacheableOperations": [
-          "prebuild",
-          "build",
-          "postbuild",
-          "prepare",
-          "test",
-          "db:init",
-          "lint",
-          "test:e2e",
-          "e2e",
-          "test:cov",
-          "build-storybook",
-          "graphql:schema:generate",
-          "graphql:models:generate"
-        ],
+        "cacheableOperations": [],
         "accessToken": "ZjczM2RhYjEtYzdmOS00MDVhLThkYWEtMDU4MmJkMTQ1ZWZjfHJlYWQ="
       }
     }
