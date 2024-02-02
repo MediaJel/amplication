@@ -26,21 +26,6 @@ RUN apt-get install -y curl && \
     sh get-docker.sh && \
     rm get-docker.sh
 
-# Final image
-FROM node:18.18.0-slim
-
-# Copy binaries or artifacts from the builder stage
-COPY --from=builder /app /app
-
-# Set working directory
-WORKDIR /app
-
-# Install Docker CLI in the final image
-RUN apt-get update && \
-    apt-get install -y curl && \
-    curl -fsSL https://get.docker.com -o get-docker.sh && \
-    sh get-docker.sh && \
-    rm get-docker.sh
 
 # Your application startup command
 ENTRYPOINT ["./docker-entrypoint.sh"]

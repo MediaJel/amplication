@@ -8,7 +8,7 @@ rm -rf ./node_modules/.cache
 npx nx reset 
 
 # Removes nx cache
-#rm -rf ./node_modules/.cache
+rm -rf ./node_modules/.cache
 
 # Serve the app
 npm run serve:server &

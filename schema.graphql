@@ -2,6 +2,42 @@
 # THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
 # ------------------------------------------------------
 
+type Category {
+  createdAt: DateTime!
+  id: String!
+  name: String!
+  rank: Float
+  updatedAt: DateTime!
+}
+
+input CategoryCreateInput {
+  name: String!
+  rank: Float
+}
+
+input CategoryOrderByInput {
+  createdAt: SortOrder
+  id: SortOrder
+  name: SortOrder
+  rank: SortOrder
+  updatedAt: SortOrder
+}
+
+input CategoryUpdateInput {
+  name: String
+  rank: Float
+}
+
+input CategoryWhereInput {
+  id: StringFilter
+  name: StringFilter
+  rank: IntNullableFilter
+}
+
+input CategoryWhereUniqueInput {
+  id: String!
+}
+
 """
 A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
 """
@@ -34,11 +70,17 @@ input JsonFilter {
 }
 
 type Mutation {
+  createCategory(data: CategoryCreateInput!): Category!
   createPlugin(data: PluginCreateInput!): Plugin!
   createPluginVersion(data: PluginVersionCreateInput!): PluginVersion!
+  deleteCategory(where: CategoryWhereUniqueInput!): Category!
   deletePlugin(where: PluginWhereUniqueInput!): Plugin!
   deletePluginVersion(where: PluginVersionWhereUniqueInput!): PluginVersion!
   processPluginCatalog: [Plugin!]
+  updateCategory(
+    data: CategoryUpdateInput!
+    where: CategoryWhereUniqueInput!
+  ): Category!
   updatePlugin(
     data: PluginUpdateInput!
     where: PluginWhereUniqueInput!
@@ -192,6 +234,13 @@ input PluginWhereUniqueInput {
 }
 
 type Query {
+  categories(
+    orderBy: [CategoryOrderByInput!]
+    skip: Float
+    take: Float
+    where: CategoryWhereInput
+  ): [Category!]!
+  category(where: CategoryWhereUniqueInput!): Category
   plugin(where: PluginWhereUniqueInput!): Plugin
   pluginVersion(where: PluginVersionWhereUniqueInput!): PluginVersion
   pluginVersions(
