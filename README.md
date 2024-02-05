@@ -232,6 +232,16 @@ npm run serve:plugins
 npm run serve:all
 ```
 
+## Common Issue Encounter
+
+**Unable to successfully run ```docker-compose -f docker-compose.dev.yml --env-file .env.docker-compose up```**
+
+```note: This command will restart all your docker image service```
+```
+systemctl restart docker.socket docker.service
+```
+
+
 ## Upgrading & Maintenance
 
 This repository is a fork of the original [amplication](https://github.com/amplication/amplication) repository with some custom
