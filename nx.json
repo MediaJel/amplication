@@ -1,7 +1,6 @@
 {
   "tasksRunnerOptions": {
     "default": {
-      "runner": "nx-cloud",
       "options": {
         "skipNxCache": true,
         "cacheableOperations": [],
