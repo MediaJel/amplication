@@ -1,0 +1,9 @@
+{
+  "apps": [
+    {
+      "name": "amplication",
+      "script": "npm",
+      "args": "run serve:all"
+    }
+  ]
+}

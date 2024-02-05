@@ -23,6 +23,7 @@
     "serve:plugins": "npx nx serve amplication-plugin-api",
     "serve:notification": "npx nx serve notification-service",
     "serve:all": "concurrently --kill-others \"npm run serve:server\" \"npm run serve:client\" \"npm run serve:dsg\" \"npm run serve:git\" \"npm run serve:plugins\"",
+    "serve:pm2": "pm2 start pm2.json",
     "debug:dsg": "npx nx generate-local-code data-service-generator"
   },
   "lint-staged": {
@@ -312,6 +313,7 @@
     "nx": "16.9.1",
     "nx-cloud": "16.5.2",
     "path-browserify": "^1.0.1",
+    "pm2": "^5.3.1",
     "prisma": "^4.16.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
